@@ -76,7 +76,7 @@ public class TextLengthCalculatorImpl implements TextMetrics {
   }
 
   @Override
-  public Object getState() {
+  public Object getState() { // pattern smell
     if (myState == null) {
       myState = new State(myGraphics.getFontRenderContext(), myGraphics.getFont());
     }
