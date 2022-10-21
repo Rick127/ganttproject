@@ -30,21 +30,21 @@ import java.util.*;
  * @author bard
  */
 public class Canvas {
-  private ArrayList<Rectangle> myRectangles = new ArrayList<Rectangle>();
+  private final ArrayList<Rectangle> myRectangles = new ArrayList<Rectangle>();
 
-  private ArrayList<Line> myLines = new ArrayList<Line>();
+  private final ArrayList<Line> myLines = new ArrayList<Line>();
 
-  private ArrayList<Text> myTexts = new ArrayList<Text>();
+  private final ArrayList<Text> myTexts = new ArrayList<Text>();
 
-  private Map<Object, Shape> myModelObject2primitive = new WeakHashMap<Object, Shape>();
+  private final Map<Object, Shape> myModelObject2primitive = new WeakHashMap<Object, Shape>();
 
-  private List<Canvas> myLayers = new ArrayList<Canvas>();
+  private final List<Canvas> myLayers = new ArrayList<Canvas>();
 
   private int myDeltaX;
 
   private int myDeltaY;
 
-  private List<TextGroup> myTextGroups = new ArrayList<TextGroup>();
+  private final List<TextGroup> myTextGroups = new ArrayList<TextGroup>();
 
   private final DummySpatialIndex<Text> myTextIndex = new DummySpatialIndex<Text>();
 
@@ -53,12 +53,12 @@ public class Canvas {
   /** Horizontal alignments for texts */
   public enum HAlignment {
     CENTER, LEFT, RIGHT
-  };
+  }
 
   /** Vertical alignments for texts */
   public enum VAlignment {
     CENTER, TOP, BOTTOM
-  };
+  }
 
   public static class Shape {
     private Color myBackgroundColor;
@@ -454,14 +454,14 @@ public class Canvas {
   }
 
   public static class TextGroup {
-    private List<String> myLineStyles;
-    private int myHeight;
+    private final List<String> myLineStyles;
+    private final int myHeight;
     private FontChooser myFontChooser;
-    private List<Font> myFonts;
-    private List<List<Text>> myLines = new ArrayList<List<Text>>();
-    private int myBottomY;
-    private int myLeftX;
-    private List<Integer> myBaselines = new ArrayList<Integer>();
+    private final List<Font> myFonts;
+    private final List<List<Text>> myLines = new ArrayList<List<Text>>();
+    private final int myBottomY;
+    private final int myLeftX;
+    private final List<Integer> myBaselines = new ArrayList<Integer>();
 
     public TextGroup(int leftX, int bottomY, int height, String... lineStyles) {
       myLeftX = leftX;
