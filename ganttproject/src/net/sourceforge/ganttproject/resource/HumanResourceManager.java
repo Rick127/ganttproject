@@ -139,13 +139,15 @@ public class HumanResourceManager {
 
     };
   }
+
   public HumanResource create(String name, int i) {
     HumanResource hr = new HumanResource(name, i, this);
-    hr.setRole(myDefaultRole);
-    add(hr);
+      hr.setRole(myDefaultRole);
+      add(hr);
     return hr;
   }
 
+  // metedo alterado apenas adiciona caso ainda nao exista o recurso a adicionar e caso este tenha um nome atribuiso
   public void add(HumanResource resource) {
     if (resource.getId() == -1) {
       resource.setId(nextFreeId);
@@ -153,10 +155,39 @@ public class HumanResourceManager {
     if (resource.getId() >= nextFreeId) {
       nextFreeId = resource.getId() + 1;
     }
-    resources.add(resource);
-    fireResourceAdded(resource);
+
+    if(!findEqualResource(resource)) {
+      if(findNameResource(resource)){
+        resources.add(resource);
+        fireResourceAdded(resource);
+      }
+     else
+        System.out.println("Recurso sem nome atribuido");
+    }
+    else
+    System.out.println("Recurso ja existente");
   }
 
+  //metedo auxiliar que ajuda a evitar a criacao de recursos iguais
+  private boolean findEqualResource(HumanResource resource){
+    Iterator aux =resources.iterator();
+    while(aux.hasNext()) {
+       HumanResource recursoAdicionar = (HumanResource) aux.next();
+       String tipoTrabalhador1 = resource.getRole().getName();
+       String tipoTrabalhadorAdicionar = recursoAdicionar.getRole().getName();
+      if (resource.getName().equals(recursoAdicionar.getName()) && tipoTrabalhador1.equals(tipoTrabalhadorAdicionar) ){
+        return true;
+      }
+    }
+    return false;
+  }
+  //metedo auxiliar que ajuda a evitar a criacao de recursos sem nome atribuido
+  private boolean findNameResource(HumanResource resource){
+    if(resource.getName().equals("")){
+      return false;
+    }
+  return true;
+  }
   public HumanResource getById(int id) {
     // Linear search is not really efficient, but we do not have so many
     // resources !?
