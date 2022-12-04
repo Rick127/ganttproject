@@ -13,10 +13,10 @@ import junit.framework.TestCase;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class CreateResource {
+public class TesteFunc2CreateResource {
     // teste que falha uma vez que o recurso tem o mesmo nome e as mesmas funcoes indefinidas
     @Test
-    void createResource() {
+    void createResourceTesting() {
         HumanResource resource1 = new HumanResource("Nadia",2,null );
         HumanResource resource2 = new HumanResource("Nadia",2,null );
         assert(!resource1.getName().equals(resource2.getName()) && !resource1.getRole().equals(resource2.getRole()));
@@ -24,14 +24,14 @@ public class CreateResource {
 
     // testa que nao cria o recurso uma vez que o seus nomes sao diferentes neste caso as suas funcoes podem ser iguais ou distintas
     @Test
-    void createResource2() {
+    void createResource2Testing() {
         HumanResource resource1 = new HumanResource("Nadia",2,null );
         HumanResource resource2 = new HumanResource("Joao",2,null );
         assert(!resource1.getName().equals(resource2.getName()) && !resource1.getRole().equals(resource2.getRole()));
     }
     // testa que cria o recurso uma vez que o seus nomes sao diferentes e as suas funcoes tambem
     @Test
-    void createResource3() {
+    void createResourceTesting3() {
         HumanResource resource1 = new HumanResource("Nadia",2,null );
         HumanResource resource2 = new HumanResource("Jose",2,null );
         assert( !resource1.getName().equals(resource2.getName()) && !resource1.getRole().equals(resource2.getRole()));
