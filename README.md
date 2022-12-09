@@ -1,3 +1,7 @@
+João Esteves 47994
+Nádia Mendes 53175
+José Morgado 59457
+
 GanttProject
 ============
 [![Build Status] (https://travis-ci.org/bardsoftware/ganttproject.svg?branch=master)](https://travis-ci.org/bardsoftware/ganttproject)
